@@ -1,0 +1,53 @@
+
+
+<script>
+
+  // Welcome message
+
+  window.onload = function () {
+
+    document.getElementById("welcome").textContent = "Welcome to my Portfolio!";
+
+    showClock();
+
+    applySavedTheme();
+
+  };
+
+  // Toggle dark mode
+
+  function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+
+    const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+
+    localStorage.setItem("theme", theme);
+
+  }
+
+  // Apply saved theme on load
+
+  function applySavedTheme() {
+
+    if (localStorage.getItem("theme") === "dark") {
+
+      document.body.classList.add("dark-mode");
+
+    }
+
+  }
+
+  // Show real-time clock
+
+  function showClock() {
+
+    setInterval(() => {
+
+      const now = new Date();
+
+      document.getElementById("clock").textContent = now.toLocaleTimeString();
+
+    }, 1000);
+
+ }
